@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patent Innovation Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="top-bar-left">
+                <span class="trial-info">6 days remaining</span>
+            </div>
+            <div class="top-bar-right">
+                <button class="free-trial-btn">
+                    <i class="fas fa-star"></i>
+                    Free Trial
+                </button>
+                <button class="notification-btn">
+                    <i class="fas fa-bell"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <div class="logo">
+                        <i class="fas fa-asterisk"></i>
+                    </div>
+                    <span class="company-name">My Company</span>
+                </div>
+
+                <nav class="sidebar-nav">
+                    <div class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-tasks"></i>
+                        <span>Tasks</span>
+                        <span class="nav-badge new">New</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Timeline</span>
+                    </div>
+
+                    <div class="nav-section-header">Patent</div>
+                    
+                    <div class="nav-item active">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Innovations</span>
+                        <span class="nav-badge count">2</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Portfolio</span>
+                        <span class="nav-badge count">0</span>
+                    </div>
+
+                    <div class="nav-section-header">Strategize</div>
+                    
+                    <div class="nav-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Insights</span>
+                    </div>
+                    <div class="nav-item">
+                        <i class="fas fa-compass"></i>
+                        <span>Strategy</span>
+                        <span class="nav-badge beta">Beta</span>
+                    </div>
+                </nav>
+
+                <div class="feedback-section">
+                    <i class="fas fa-hand-paper"></i>
+                    <div class="feedback-text">
+                        <strong>Feedback</strong>
+                        <p>Share your thoughts, improve your experience.</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-footer">
+                    <button class="footer-btn">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button class="footer-btn">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="footer-btn">
+                        <i class="fas fa-th"></i>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <!-- Breadcrumbs -->
+                <div class="breadcrumbs">
+                    <span>Home</span>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Innovations</span>
+                </div>
+
+                <!-- Page Header -->
+                <header class="page-header">
+                    <div class="page-title-section">
+                        <h1 class="page-title">Innovations</h1>
+                        <p class="page-subtitle">Your patent journey starts here</p>
+                    </div>
+                    
+                    <div class="page-actions">
+                        <div class="view-toggles">
+                            <button class="view-toggle active" data-view="grid">
+                                <i class="fas fa-th"></i>
+                            </button>
+                            <button class="view-toggle" data-view="list">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="display-dropdown">
+                            <select>
+                                <option>Display</option>
+                            </select>
+                        </div>
+                        
+                        <button class="create-btn">
+                            <i class="fas fa-plus"></i>
+                            Create Innovation
+                        </button>
+                    </div>
+                </header>
+
+                <!-- Dashboard Content -->
+                <div class="dashboard-content">
+                    <!-- KPI Cards Row -->
+                    <section class="kpi-section">
+                        <div class="kpi-grid">
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <h3>Total Patents</h3>
+                                    <i class="fas fa-file-alt kpi-icon"></i>
+                                </div>
+                                <div class="kpi-value" id="totalPatents">247</div>
+                                <div class="kpi-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+12%</span>
+                                    <span class="change-period">vs last month</span>
+                                </div>
+                            </div>
+
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <h3>Pending Applications</h3>
+                                    <i class="fas fa-clock kpi-icon"></i>
+                                </div>
+                                <div class="kpi-value" id="pendingApplications">89</div>
+                                <div class="kpi-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+8%</span>
+                                    <span class="change-period">vs last month</span>
+                                </div>
+                            </div>
+
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <h3>Granted Patents</h3>
+                                    <i class="fas fa-check-circle kpi-icon"></i>
+                                </div>
+                                <div class="kpi-value" id="grantedPatents">158</div>
+                                <div class="kpi-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+15%</span>
+                                    <span class="change-period">vs last month</span>
+                                </div>
+                            </div>
+
+                            <div class="kpi-card">
+                                <div class="kpi-header">
+                                    <h3>Success Rate</h3>
+                                    <i class="fas fa-percentage kpi-icon"></i>
+                                </div>
+                                <div class="kpi-value" id="successRate">64%</div>
+                                <div class="kpi-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>+3%</span>
+                                    <span class="change-period">vs last month</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Charts and Analytics Section -->
+                    <section class="analytics-section">
+                        <div class="analytics-grid">
+                            <!-- Patent Timeline Chart -->
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <h3>Patent Applications Timeline</h3>
+                                    <div class="chart-controls">
+                                        <button class="chart-btn active" data-period="month">Month</button>
+                                        <button class="chart-btn" data-period="quarter">Quarter</button>
+                                        <button class="chart-btn" data-period="year">Year</button>
+                                    </div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="timelineChart"></canvas>
+                                </div>
+                            </div>
+
+                            <!-- Technology Categories -->
+                            <div class="chart-card">
+                                <div class="chart-header">
+                                    <h3>Technology Categories</h3>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="categoryChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Patent Status Overview -->
+                    <section class="status-section">
+                        <div class="status-grid">
+                            <div class="status-card">
+                                <div class="status-header">
+                                    <h3>Patent Status Distribution</h3>
+                                </div>
+                                <div class="status-content">
+                                    <div class="status-item">
+                                        <div class="status-indicator granted"></div>
+                                        <span class="status-label">Granted</span>
+                                        <span class="status-count">158</span>
+                                        <span class="status-percentage">64%</span>
+                                    </div>
+                                    <div class="status-item">
+                                        <div class="status-indicator pending"></div>
+                                        <span class="status-label">Pending</span>
+                                        <span class="status-count">89</span>
+                                        <span class="status-percentage">36%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status-card">
+                                <div class="status-header">
+                                    <h3>Recent Activity</h3>
+                                </div>
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon granted">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Patent Granted</div>
+                                            <div class="activity-description">AI-powered data processing system</div>
+                                            <div class="activity-time">2 hours ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon pending">
+                                            <i class="fas fa-clock"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Application Filed</div>
+                                            <div class="activity-description">Blockchain security protocol</div>
+                                            <div class="activity-time">1 day ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon review">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Under Review</div>
+                                            <div class="activity-description">Machine learning algorithm</div>
+                                            <div class="activity-time">3 days ago</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Recent Applications -->
+                    <section class="applications-section">
+                        <div class="applications-card">
+                            <div class="applications-header">
+                                <div class="applications-title-section">
+                                    <h3>
+                                        <i class="fas fa-file-alt"></i>
+                                        Recent Applications
+                                    </h3>
+                                    <p>Manage and track your patent applications.</p>
+                                </div>
+                                <button class="view-all-btn">View All</button>
+                            </div>
+                            <div class="applications-table">
+                                <div class="table-header">
+                                    <div class="table-cell">Application ID</div>
+                                    <div class="table-cell">Title</div>
+                                    <div class="table-cell">Applicant</div>
+                                    <div class="table-cell">Status</div>
+                                    <div class="table-cell">Priority</div>
+                                    <div class="table-cell">Business Impact</div>
+                                    <div class="table-cell">Disclosure Date</div>
+                                    <div class="table-cell">Deadline</div>
+                                    <div class="table-cell"></div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell">
+                                        <span class="application-id">US17123456</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <div class="title-content">
+                                            <span class="application-title">Tool-Free Eccentric Lock for Particleboard Panels</span>
+                                            <span class="application-type">Utility</span>
+                                        </div>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="assignee">Dr. Sarah Chen</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="status-badge under-review">Under Review</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="priority-badge high">High</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="business-impact">High 9.2</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>01/09/2025</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>01/10/2025</span>
+                                        <span class="deadline-status green"></span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <button class="more-options">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell">
+                                        <span class="application-id">US17234567</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <div class="title-content">
+                                            <span class="application-title">Self-Indexing Dowel + Slot System for Blind Assembly</span>
+                                            <span class="application-type">Utility</span>
+                                        </div>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="assignee">Michael Torres</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="status-badge office-action">Office Action</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="priority-badge critical">Critical</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="business-impact">High 8.7</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>25/05/2025</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>25/06/2025</span>
+                                        <span class="deadline-status red"></span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <button class="more-options">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell">
+                                        <span class="application-id">US17345678</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <div class="title-content">
+                                            <span class="application-title">Low-Profile Fold-Flat Sofa Frame with Living Hinges</span>
+                                            <span class="application-type">Utility</span>
+                                        </div>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="assignee">Lisa Wang</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="status-badge granted">Granted</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="priority-badge medium">Medium</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="business-impact">Medium 6.3</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>10/08/2024</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>10/09/2024</span>
+                                        <span class="deadline-status red"></span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <button class="more-options">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell">
+                                        <span class="application-id">US17456789</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <div class="title-content">
+                                            <span class="application-title">Modular Take-Back Scoring & Refurbishment Workflow</span>
+                                            <span class="application-type">Method</span>
+                                        </div>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="assignee">Alex Johnson</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="status-badge published">Published</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="priority-badge low">Low</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="business-impact">Low 2.8</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>05/03/2024</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>05/04/2024</span>
+                                        <span class="deadline-status red"></span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <button class="more-options">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell">
+                                        <span class="application-id">US17567890</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <div class="title-content">
+                                            <span class="application-title">Photocatalytic Textile Coating for Indoor VOC Degradation</span>
+                                            <span class="application-type">Composition</span>
+                                        </div>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="assignee">Dr. Sarah Chen</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="status-badge pending">Pending</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="priority-badge high">High</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <span class="business-impact">Medium 7.1</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>20/04/2024</span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <i class="fas fa-calendar"></i>
+                                        <span>20/05/2024</span>
+                                        <span class="deadline-status red"></span>
+                                    </div>
+                                    <div class="table-cell">
+                                        <button class="more-options">
+                                            <i class="fas fa-ellipsis-h"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
